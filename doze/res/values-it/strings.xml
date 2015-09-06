@@ -18,7 +18,7 @@
   <string name="ambient_display_title">Ambient display</string>
   <string name="ambient_display_enable_title">Ambient display</string>
   <string name="ambient_display_enable_summary">Attiva lo schermo quando ricevi notifiche</string>
-  <string name="hand_wave_gesture_title">Onda mano</string>
+  <string name="hand_wave_gesture_title">Passaggio della mano</string>
   <string name="hand_wave_gesture_summary">Mostra notifiche al passaggio della mano</string>
   <string name="pocket_gesture_title">Tasca</string>
   <string name="pocket_gesture_summary">Mostra notifiche quando togli dalla tasca</string>

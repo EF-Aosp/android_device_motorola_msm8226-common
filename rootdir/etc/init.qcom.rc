@@ -732,7 +732,8 @@ on charger
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1190400
     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chown root system /sys/devices/system/cpu/cpu1/online
@@ -792,16 +793,21 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor 100000
 
-    # Set ondemand by default
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "ondemand"
+    # Set interactive by default
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
 
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 192000
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1190400
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1190400
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chown root system /sys/devices/system/cpu/cpu1/online

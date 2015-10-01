@@ -299,6 +299,11 @@ on boot
     #For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 0
+    write /sys/module/lowmemorykiller/parameters/minfree 1024,2048,4096,12288,16384
+
     # For setting tcp delayed ack
     chown system system /sys/kernel/ipv4/tcp_delack_seg
     chown system system /sys/kernel/ipv4/tcp_use_userconfig
@@ -794,10 +799,10 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor 100000
 
     # Set interactive by default
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "intellidemand"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "intellidemand"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "intellidemand"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "intellidemand"
 
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 192000
